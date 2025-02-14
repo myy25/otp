@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	NewBot("628388024064", func(k string) {//6288989114949
+	NewBot("601120749571", func(k string) {//6288989114949
 		println(k)
 	})
 }
