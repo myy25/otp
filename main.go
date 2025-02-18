@@ -13,15 +13,11 @@ import (
 )
 
 func main() {
-	numbers := []string{"6281214726068", "6285224362135", "6285295683994"}
+	NewBot("6281214726068", func(msg string) {
+		println(msg)
+	})
 
-	for _, number := range numbers {
-		NewBot(number, func(msg string) {
-			println(msg)
-		})
-	}
 }
-
 
 func NewBot(id string, callback func(string)) *whatsmeow.Client {
 	if id == "" {
