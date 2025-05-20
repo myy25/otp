@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 	"time"
+	"context
 
 	_ "github.com/mattn/go-sqlite3"
 	waLog "go.mau.fi/whatsmeow/util/log"
