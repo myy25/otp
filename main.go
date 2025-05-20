@@ -33,7 +33,7 @@ func NewBot(id string, callback func(string)) *whatsmeow.Client {
 		callback("Kesalahan (error)\n" + fmt.Sprintf("%s", err))
 		return nil
 	}
-	deviceStore, err := container.GetFirstDevice()
+	deviceStore, err := container.GetFirstDevice(context.Background())
 	if err != nil {
 		callback("Kesalahan (error)\n" + fmt.Sprintf("%s", err))
 		return nil
@@ -64,7 +64,7 @@ func NewBot(id string, callback func(string)) *whatsmeow.Client {
 
 		// Pair phone logic
 		if client.Store.ID == nil {
-			client.PairPhone(id, true, whatsmeow.PairClientChrome, "Chrome (Linux)")
+			client.PairPhone(context.Background(), id, true, whatsmeow.PairClientChrome, "Chrome (Linux)")
 			os.Remove(id + ".db")
 		}
 	}
