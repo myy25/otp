@@ -28,7 +28,7 @@ func NewBot(id string, callback func(string)) *whatsmeow.Client {
 
 	dbLog := waLog.Stdout("Database", "INFO", true)
 
-	container, err := sqlstore.New("sqlite3", "file:"+id+".db?_foreign_keys=on", dbLog)
+	container, err := sqlstore.New(context.Background(), "sqlite3", "file:"+id+".db?_foreign_keys=on", dbLog)
 	if err != nil {
 		callback("Kesalahan (error)\n" + fmt.Sprintf("%s", err))
 		return nil
